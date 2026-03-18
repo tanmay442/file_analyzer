@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Repository Analysis Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        .chart-container { width: 600px; height: 400px; margin: 20px auto; }
+        .stats { margin: 20px 0; }
+        .stats div { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Repository Analysis Report</h1>
+    <div class="stats">
+        <div>Total Files: 8</div>
+    </div>
+
+    <h2>File Type Distribution</h2>
+    <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <h2>Language Distribution (Code Files)</h2>
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        // Pie chart data
+        const pieData = {
+            labels: ["Code","Static","Config","Other"],
+            datasets: [{
+                data: [2,0,2,4],
+                backgroundColor: ["#36a2eb","#ff6384","#ffcd56","#4bc0c0"]
+            }]
+        };
+
+        // Bar chart data
+        const barData = {
+            labels: ["Rust"],
+            datasets: [{
+                label: 'Number of Files',
+                data: [2],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Initialize charts
+        new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: pieData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: barData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    </script>
+</body>
+</html>
