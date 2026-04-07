@@ -74,4 +74,4 @@ After execution, a file named `report.html` will be generated in the root direct
 
 ## License
 
-MIT (or your preferred license)
+MIT 
